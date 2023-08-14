@@ -1,6 +1,5 @@
 import { useEffect, useState } from 'react'
 import { getGames } from '../services/games'
-import mockGames from '../mocks/games.json'
 
 export function useGames ({ filters }) {
   console.log(filters)
@@ -12,8 +11,7 @@ export function useGames ({ filters }) {
       setIsLoading(true)
       try {
         const games = await getGames({ filters })
-        console.log(games)
-        setGames(mockGames)
+        setGames(games)
       } catch (error) {
         console.log(error)
       } finally {
